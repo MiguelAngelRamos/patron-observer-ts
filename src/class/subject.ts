@@ -14,11 +14,11 @@ export class Subject<T> implements ISubject<T> {
     }
 
     unsubscribe(observer: IObserver<T>): void {
-        this.observers = this.observers.filter(obs => obs !== observer);
+        this.observers = this.observers.filter((obs: IObserver<T>):boolean => obs !== observer);
     }
 
     notify(value: T): void {
-        this.observers.forEach(observer => observer.refresh(value));
+        this.observers.forEach((observer: IObserver<T>) => observer.refresh(value));
     }
 
 }
